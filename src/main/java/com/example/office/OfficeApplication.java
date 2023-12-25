@@ -61,6 +61,14 @@ public class OfficeApplication implements CommandLineRunner {
 			Project p = e.getProject();
 			logger.info("Name: {}, Department:{}, Project:{}", e.getName(), d.getName(), p.getName());
 		}
+
+		for(Department d: departmentRepository.findAll()){
+			logger.info("Name: {}", d.getName());
+			logger.info("----- Employees -----");
+			for(Employee e: d.getEmployees()){
+				logger.info("Name: {}, Salary: {}", e.getName(), e.getSalary());
+			}
+		}
 	}
 
 }
